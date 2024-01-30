@@ -11,8 +11,17 @@
 // al ID pasado por parámetro.
 
 import dotenv from "dotenv";
-dotenv.config()
+dotenv.config();
 
 const urlApi = process.env.BASE_URL_API;
+const art = process.argv[2];
+const urlParams = new URL(`${urlApi}`);
 
-console.log(urlApi);
+const getAllData = async () => {
+  const response = fetch(urlParams);
+  const data = (await response).json();
+  const result = await data;
+  console.log(result);
+};
+
+getAllData();
