@@ -22,11 +22,7 @@ const getAllData = async () => {
   }
 };
 
-const main = async () => {
-  const data = await getAllData();
-  console.log(data);
-};
-main();
+export{getAllData}
 
 // 1. getAllTitlesArts() - Retorna un array de strings con solo los títulos de todas las
 // obras.
