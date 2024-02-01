@@ -63,9 +63,12 @@ const getAllMappedArts = async () => {
   }
 };
 
-export { getAllData, getAllTitlesArts, getAllMappedArts };
 
 // 3. getPublicationHistoryById(Id) - Retorna un string con la publicación histórica de la
 // obra correspondiente al ID pasado por parámetro.
+
+
 // 4. getDateDisplayById(id) - Retorna un string con la fecha indicada correspondiente
 // al ID pasado por parámetro.
+
+export { getAllData, getAllTitlesArts, getAllMappedArts };

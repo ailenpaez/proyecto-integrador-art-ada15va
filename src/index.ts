@@ -13,9 +13,9 @@ const main = async () => {
 
   const dataArtworks = await getAllMappedArts();
 
-  console.log(dataArtworks);
-
   //  console.log(data);
   //  console.log(titles);
+  //  console.log(dataArtworks);
+
 };
 main();
