@@ -22,10 +22,26 @@ const getAllData = async () => {
   }
 };
 
-export{getAllData}
-
 // 1. getAllTitlesArts() - Retorna un array de strings con solo los títulos de todas las
 // obras.
+
+const getAllTitlesArts = async () => {
+  try {
+    const data = await getAllData();
+
+    if (data.data) {
+      const artTitles = await data.data.map((artwork: any) => artwork.title);
+      return artTitles;
+    } else {
+      throw new Error("INVALID_ARTWORKS");
+    }
+  } catch (error) {
+    return error;
+  }
+};
+
+export { getAllData, getAllTitlesArts };
+
 // 2. getAllMappedArts() - Retorna un array con todos los trabajos pero solo mostrando:
 // id, title, department_title y dimensions en cada objeto.
 // 3. getPublicationHistoryById(Id) - Retorna un string con la publicación histórica de la
