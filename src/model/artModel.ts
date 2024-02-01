@@ -29,7 +29,7 @@ const getAllTitlesArts = async () => {
   try {
     const data = await getAllData();
 
-    if (data.data) {
+    if (data && data.data) {
       const artTitles = await data.data.map((artwork: any) => artwork.title);
       return artTitles;
     } else {
@@ -40,10 +40,31 @@ const getAllTitlesArts = async () => {
   }
 };
 
-export { getAllData, getAllTitlesArts };
-
 // 2. getAllMappedArts() - Retorna un array con todos los trabajos pero solo mostrando:
 // id, title, department_title y dimensions en cada objeto.
+
+const getAllMappedArts = async () => {
+  try {
+    const data = await getAllData();
+
+    if (data && data.data) {
+      const mappedArtworks = data.data.map((artwork: any) => ({
+        id: artwork.id,
+        title: artwork.title,
+        department_title: artwork.department_title,
+        dimensions: artwork.dimensions,
+      }));
+      return mappedArtworks;
+    } else {
+      throw new Error("INVALID_ARTWORK");
+    }
+  } catch (error) {
+    return error;
+  }
+};
+
+export { getAllData, getAllTitlesArts, getAllMappedArts };
+
 // 3. getPublicationHistoryById(Id) - Retorna un string con la publicación histórica de la
 // obra correspondiente al ID pasado por parámetro.
 // 4. getDateDisplayById(id) - Retorna un string con la fecha indicada correspondiente
