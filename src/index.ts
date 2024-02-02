@@ -3,6 +3,7 @@ import {
   getAllTitlesArts,
   getAllMappedArts,
   getPublicationHistoryById,
+  getDateDisplayById
 } from "./model/artModel";
 
 const main = async () => {
@@ -15,9 +16,12 @@ const main = async () => {
   //  console.log(titles);
 
   const dataArtworks = await getAllMappedArts();
-  //    console.log(dataArtworks);
+    //  console.log(dataArtworks);
 
   const anioPublicacion = await getPublicationHistoryById(params);
-  console.log(anioPublicacion);
+    console.log(anioPublicacion);
+
+  const dispalyDate = await getDateDisplayById(params);
+  console.log(dispalyDate);
 };
 main();

@@ -81,22 +81,35 @@ const getPublicationHistoryById = async (id: number) => {
       }
     }
   } catch (error) {
-    console.log(error);
-  }
+    return error
+    }
 };
-
-// const obtenerAnioPublicacion = async () => {
-//     const anioPublicacion = await getPublicationHistoryById(146998);
-//     console.log(anioPublicacion);
-// }
-// obtenerAnioPublicacion()
 
 // 4. getDateDisplayById(id) - Retorna un string con la fecha indicada correspondiente
 // al ID pasado por parámetro.
+
+const getDateDisplayById = async (id: number) => {
+  try {
+    const data = await getAllData();
+
+    if (data && data.data) {
+      const artwork = data.data.find((art: any) => art.id === id);
+
+      if (artwork && artwork.date_display) {
+        return `DATE DISPLAY TO ID ${id} - YEAR -> ${artwork.date_display}.`;
+      } else {
+        throw new Error("DATE_DISPLAY_NOT_EXIST");
+      }
+    }
+  } catch (error) {
+    return error
+    }
+};
 
 export {
   getAllData,
   getAllTitlesArts,
   getAllMappedArts,
   getPublicationHistoryById,
+  getDateDisplayById,
 };
