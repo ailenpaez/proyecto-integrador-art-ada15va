@@ -122,5 +122,11 @@ interface Artwork {
   timestamp: string;
 }
 
-export {Artwork}
+interface ArtworkInfo {
+  id: number;
+  title: string;
+  department_title: string;
+  dimensions: string;
+}
 
+export { Artwork, ArtworkInfo };
