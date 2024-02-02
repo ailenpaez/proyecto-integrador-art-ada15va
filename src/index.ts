@@ -12,16 +12,16 @@ const main = async (): Promise <void> => {
   const data = await getAllData();
    console.log(data);
 
-//   const titles = await getAllTitlesArts();
-// //    console.log(titles);
+  const titles = await getAllTitlesArts();
+//    console.log(titles);
 
-//   const dataArtworks = await getAllMappedArts();
-//     //  console.log(dataArtworks);
+  const dataArtworks = await getAllMappedArts();
+    //  console.log(dataArtworks);
 
-// //   const publicationHistory = await getPublicationHistoryById(params);
-// //     console.log(publicationHistory);
+//   const publicationHistory = await getPublicationHistoryById(params);
+//     console.log(publicationHistory);
 
-//   const dispalyDate = await getDateDisplayById(params);
-//   console.log(dispalyDate);
+  const dispalyDate = await getDateDisplayById(params);
+  console.log(dispalyDate);
 };
 main();
