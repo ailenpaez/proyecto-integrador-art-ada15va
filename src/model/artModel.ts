@@ -4,6 +4,7 @@
 
 import dotenv from "dotenv";
 dotenv.config();
+import { Artwork } from "../interfaces/interfaces";
 
 const urlApi = process.env.BASE_URL_API!;
 const api = new URL(urlApi);
@@ -48,7 +49,7 @@ const getAllMappedArts = async () => {
     const data = await getAllData();
 
     if (data && data.data) {
-      const mappedArtworks = data.data.map((artwork: any) => ({
+      const mappedArtworks = await data.data.map((artwork: any) => ({
         id: artwork.id,
         title: artwork.title,
         department_title: artwork.department_title,
@@ -63,12 +64,39 @@ const getAllMappedArts = async () => {
   }
 };
 
-
 // 3. getPublicationHistoryById(Id) - Retorna un string con la publicación histórica de la
 // obra correspondiente al ID pasado por parámetro.
 
+const getPublicationHistoryById = async (id: number) => {
+  try {
+    const data = await getAllData();
+
+    if (data && data.data && data.data.length > 0) {
+      const artwork = data.data.find((art: any) => art.id === id);
+
+      if (artwork && artwork.publication_history) {
+        return `PUBLICATION HISTORY TO ID ${id} - ${artwork.publication_history}`;
+      } else {
+        throw new Error("PUBLICATION_HISTORY_NOT_EXIST");
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// const obtenerAnioPublicacion = async () => {
+//     const anioPublicacion = await getPublicationHistoryById(146998);
+//     console.log(anioPublicacion);
+// }
+// obtenerAnioPublicacion()
 
 // 4. getDateDisplayById(id) - Retorna un string con la fecha indicada correspondiente
 // al ID pasado por parámetro.
 
-export { getAllData, getAllTitlesArts, getAllMappedArts };
+export {
+  getAllData,
+  getAllTitlesArts,
+  getAllMappedArts,
+  getPublicationHistoryById,
+};
