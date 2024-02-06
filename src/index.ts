@@ -1,27 +1,51 @@
+import { ArtworkInfo } from "./interfaces/interfaces";
 import {
   getAllData,
   getAllTitlesArts,
   getAllMappedArts,
   getPublicationHistoryById,
-  getDateDisplayById
+  getDateDisplayById,
 } from "./model/artModel";
 
-const main = async (): Promise <void> => {
-  const params = Number(process.argv[2])
+const main = async (): Promise<
+  string | string[] | undefined | ArtworkInfo[] | Error | null
+> => {
+  try {
+    const key = process.argv[2];
+    const param = process.argv[3];
 
-  const data = await getAllData();
-   console.log(data);
+    switch (key) {
+      case "allData":
+        const data = await getAllData();
+        console.log(data);
+        break;
 
-  const titles = await getAllTitlesArts();
-//    console.log(titles);
+      case "allTitles":
+        const titles = await getAllTitlesArts();
+        console.log(titles);
+        break;
 
-  const dataArtworks = await getAllMappedArts();
-    //  console.log(dataArtworks);
+      case "allArts":
+        const arts = await getAllMappedArts();
+        console.log(arts);
+        break;
 
-//   const publicationHistory = await getPublicationHistoryById(params);
-//     console.log(publicationHistory);
+      case "publicationHistory":
+        const history = await getPublicationHistoryById(Number(param));
+        console.log(history);
+        break;
 
-  const dispalyDate = await getDateDisplayById(params);
-  console.log(dispalyDate);
+      case "displayDate":
+        const date = await getDateDisplayById(Number(param));
+        console.log(date);
+        break;
+
+      default:
+        console.log("INVALID_COMMAND!");
+    }
+  } catch (error: any) {
+    return error;
+  }
 };
+
 main();
