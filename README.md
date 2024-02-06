@@ -32,7 +32,7 @@ Se asignaron cinco métodos a utilizar con esta api:
  2. Muestra por la consola un array de strings con los *títulos* de las obras de arte.
  3. Muestra por la consola una array de objetos con datos generales como *id*, *título*, *departamento* al que pertenece y *dimensiones* de la obra.
  4. Muestra por la consola string con la *publicación histórica* de la obra correspondiente al *ID* agregado luego de la 'palabra clave'.
- 5. Muestra por la consola string con la *fecha indicada* correspondiente al *ID* pasado como parámetro.
+ 5. Muestra por la consola string con la *fecha indicada o aproximada* correspondiente a la obra del *ID* pasado como parámetro.
 
 ***
 ### Fuentes ###
