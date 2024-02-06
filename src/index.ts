@@ -17,35 +17,40 @@ const main = async (): Promise<
     switch (key) {
       case "allData":
         const data = await getAllData();
-        console.log(data);
-        break;
+        return data;
 
       case "allTitles":
         const titles = await getAllTitlesArts();
-        console.log(titles);
-        break;
+        return titles;
 
       case "allArts":
         const arts = await getAllMappedArts();
-        console.log(arts);
-        break;
+        return arts;
 
       case "publicationHistory":
         const history = await getPublicationHistoryById(Number(param));
-        console.log(history);
-        break;
+        return history;
 
       case "displayDate":
         const date = await getDateDisplayById(Number(param));
-        console.log(date);
-        break;
+        return date;
 
       default:
-        console.log("INVALID_COMMAND!");
+        return "INVALID_COMMAND!";
     }
   } catch (error: any) {
     return error;
   }
 };
 
-main();
+//IIFE - autoinvocación.
+
+(async () =>{
+  try {
+    const response = await main();
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+})()
+
