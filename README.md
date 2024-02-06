@@ -15,7 +15,7 @@ Se asignaron cinco métodos a utilizar con esta api:
 
 ## Modo de ejecución:
 
- Para ejecutar estos procesos y poder ver la información solicitada, se debe pasar una serie de comandos que consisten de un **comando de ejecución**, una **palabra clave** y en algunos casos, un **número de id**.
+ Para ejecutar estos procesos y poder ver la información solicitada, se debe pasar una serie de palabras ordenadas por la terminal que consisten de un **comando de ejecución**, una **palabra clave** y en algunos casos, un **número de id**.
  
 |       | COMANDO DE EJECUCIÓN | PALABRA CLAVE (KEY) |  ID   |
 | :---: | -------------------- | :-----------------: | :---: |
